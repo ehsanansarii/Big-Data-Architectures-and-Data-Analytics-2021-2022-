@@ -1,0 +1,4 @@
+Test of the, honey word count program
+The word Honda program is the Hadoop hello word program
+Example document for hadoop word count,
+Ho how
