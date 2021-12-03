@@ -26,11 +26,16 @@ class MapperBigData extends Mapper<
     		// (=a space, a tab, a line break, or a form feed)
     		// The split method returns an array of strings
             String[] words = value.toString().split("\\s+");
+            /*
+             * Ex1
+             * for(String word: words)
+             * String cleanedWord = word.toLowerCase() 
+             * */
             
             // Iterate over the set of words
-            for(String word : words) {
+            for(int i=0; i<words.length-1; i++) {
             	// Transform word case
-                String cleanedWord = word.toLowerCase();
+                String cleanedWord = words[i].toLowerCase() + " "+ words[i+1].toLowerCase();
                 
                 // emit the pair (word, 1)
                 context.write(new Text(cleanedWord),
