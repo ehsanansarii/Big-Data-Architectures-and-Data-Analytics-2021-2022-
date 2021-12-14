@@ -10,29 +10,26 @@ import it.polito.bigdata.hadoop.lab.DriverBigData.COUNTERS;
  * Mapper
  */
 class MapperBigData extends Mapper<Text, // Input key type
-		Text, // Input value type
-		Text, // Output key type
-		Text> {// Output value type
+Text, // Input value type
+Text, // Output key type
+Text> {// Output value type
 
-	String prefix;
+String prefix;
 
-	protected void setup(Context context) {
-		prefix = context.getConfiguration().get("prefix").toString();
-	}
+protected void setup(Context context) {
+prefix = context.getConfiguration().get("prefix").toString();
+}
 
-	protected void map(Text key, // Input key type
-			Text value, // Input value type
-			Context context) throws IOException, InterruptedException {
-		String words[] = value.toString().split("\\s+");
-		for(int i =0; i<words.length; i++ ) {
-		// Check whether the word starts with the specified prefix
-		if (words[i].toString().startsWith(prefix)) {
-			context.write(key, value);
-			context.getCounter(COUNTERS.SELECTED_WORDS).increment(1);
-		} else {
-			context.getCounter(COUNTERS.DISCARDED_WORDS).increment(1);
-		}
-	}
-	}
+protected void map(Text key, // Input key type
+	Text value, // Input value type
+	Context context) throws IOException, InterruptedException {
+// Check whether the word starts with the specified prefix
+if (key.toString().startsWith(prefix)) {
+	context.write(key, value);
+	context.getCounter(COUNTERS.SELECTED_WORDS).increment(1);
+} else {
+	context.getCounter(COUNTERS.DISCARDED_WORDS).increment(1);
+}
+}
 
 }
