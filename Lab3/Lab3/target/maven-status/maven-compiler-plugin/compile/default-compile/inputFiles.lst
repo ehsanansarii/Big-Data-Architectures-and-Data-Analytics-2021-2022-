@@ -1,0 +1,7 @@
+/Users/ehsanansari/Desktop/GitHub/Big-Data-Architectures-and-Data-Analytics-2021-2022-/Lab3/Lab3_Skeleton/src/main/java/it/polito/bigdata/hadoop/lab/DriverBigData.java
+/Users/ehsanansari/Desktop/GitHub/Big-Data-Architectures-and-Data-Analytics-2021-2022-/Lab3/Lab3_Skeleton/src/main/java/it/polito/bigdata/hadoop/lab/MapperBigData2.java
+/Users/ehsanansari/Desktop/GitHub/Big-Data-Architectures-and-Data-Analytics-2021-2022-/Lab3/Lab3_Skeleton/src/main/java/it/polito/bigdata/hadoop/lab/WordCountWritable.java
+/Users/ehsanansari/Desktop/GitHub/Big-Data-Architectures-and-Data-Analytics-2021-2022-/Lab3/Lab3_Skeleton/src/main/java/it/polito/bigdata/hadoop/lab/MapperBigData1.java
+/Users/ehsanansari/Desktop/GitHub/Big-Data-Architectures-and-Data-Analytics-2021-2022-/Lab3/Lab3_Skeleton/src/main/java/it/polito/bigdata/hadoop/lab/ReducerBigData1.java
+/Users/ehsanansari/Desktop/GitHub/Big-Data-Architectures-and-Data-Analytics-2021-2022-/Lab3/Lab3_Skeleton/src/main/java/it/polito/bigdata/hadoop/lab/ReducerBigData2.java
+/Users/ehsanansari/Desktop/GitHub/Big-Data-Architectures-and-Data-Analytics-2021-2022-/Lab3/Lab3_Skeleton/src/main/java/it/polito/bigdata/hadoop/lab/TopKVector.java

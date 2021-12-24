@@ -24,5 +24,19 @@ class MapperBigData1 extends Mapper<
             Context context) throws IOException, InterruptedException {
 
     		/* Implement the map method */ 
+    	String[] items = value.toString().split(",");
+
+		// i=0 - items[0] = customer id
+		// i>=1 - items[i] = product id
+
+		// Emit pairs product1,product2
+		for (int p1 = 1; p1 < items.length; p1++) {
+			for (int p2 = 1; p2 < items.length; p2++) {
+				if (items[p1].compareTo(items[p2])<0) {
+					context.write(new Text(items[p1] + "," + items[p2]), new IntWritable(1));
+				}
+			}
+		}
+    
     }
 }

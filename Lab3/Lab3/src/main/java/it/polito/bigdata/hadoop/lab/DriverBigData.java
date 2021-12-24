@@ -5,6 +5,7 @@ import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.NullWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
@@ -63,24 +64,24 @@ public class DriverBigData extends Configured implements Tool {
 		job.setJarByClass(DriverBigData.class);
 
 		// Set job input format
-		job.setInputFormatClass(...);
+		job.setInputFormatClass(TextInputFormat.class);
 
 		// Set job output format
-		job.setOutputFormatClass(...);
+		job.setOutputFormatClass(TextOutputFormat.class);
 
 		// Set map class
 		job.setMapperClass(MapperBigData1.class);
 
 		// Set map output key and value classes
-		job.setMapOutputKeyClass(...);
-		job.setMapOutputValueClass(...);
+		job.setMapOutputKeyClass(Text.class);
+		job.setMapOutputValueClass(IntWritable.class);
 
 		// Set reduce class
 		job.setReducerClass(ReducerBigData1.class);
 
 		// Set reduce output key and value classes
-		job.setOutputKeyClass(...);
-		job.setOutputValueClass(...);
+		job.setOutputKeyClass(Text.class);
+		job.setOutputValueClass(IntWritable.class);
 
 		// Set number of reducers
 		job.setNumReduceTasks(numberOfReducersJob1);
@@ -98,6 +99,7 @@ public class DriverBigData extends Configured implements Tool {
 			Path outputDir2;
 			int numberOfReducersJob2;
 			outputDir2 = new Path(args[3]);
+			numberOfReducersJob2 = 1;
 
 			// Set path of the input file/folder for this second job
 			// The output of the first job is the input of this second job    
@@ -110,27 +112,27 @@ public class DriverBigData extends Configured implements Tool {
 			job2.setJarByClass(DriverBigData.class);
 
 			// Set job input format
-			job2.setInputFormatClass(...);
+			job2.setInputFormatClass(KeyValueTextInputFormat.class);
 
 			// Set job output format
-			job2.setOutputFormatClass(...);
+			job2.setOutputFormatClass(TextOutputFormat.class);
 
 			// Set map class
 			job2.setMapperClass(MapperBigData2.class);
 
 			// Set map output key and value classes
-			job2.setMapOutputKeyClass(...);
-			job2.setMapOutputValueClass(...);
+			job2.setMapOutputKeyClass(NullWritable.class);
+			job2.setMapOutputValueClass(WordCountWritable.class);
 
 			// Set reduce class
 			job2.setReducerClass(ReducerBigData2.class);
 
 			// Set reduce output key and value classes
-			job2.setOutputKeyClass(...);
-			job2.setOutputValueClass(...);
+			job2.setOutputKeyClass(Text.class);
+			job2.setOutputValueClass(IntWritable.class);
 
 			// Set the number of reducers of the second job 
-			numberOfReducersJob2 = ..;
+			
 			job2.setNumReduceTasks(numberOfReducersJob2);
 
 			// Execute the second job and wait for completion
