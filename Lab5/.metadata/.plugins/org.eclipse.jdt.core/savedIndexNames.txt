@@ -1,3 +1,0 @@
-INDEX VERSION 1.131+/Users/ehsanansari/Desktop/Big Data/Lab/Lab5/.metadata/.plugins/org.eclipse.jdt.core
-3384977175.index
-526068665.index
